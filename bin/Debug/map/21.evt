@@ -1,0 +1,1923 @@
+﻿;-----------------------------Made By Mamaorha----------------------------
+;--------------------------------NPC--------------------------------------
+EVENT 21001; Captain kunabarl - npcid = 13009
+E RUN_EVENT 2000; Continue with Captain kunabarl menu
+END
+
+EVENT 7001; Proconsul - npcid = 14301
+E RUN_EVENT 2002; Continue with Proconsul menu
+END
+
+EVENT 35201; miraselth[item exchange] - npcid = 16047
+E RUN_EVENT 2011; Continue with miraselth[item exchange] menu
+END
+
+EVENT 30001; selith[special store] - npcid = 16071
+E RUN_EVENT 11; Continue with selith[special store] menu
+END
+
+EVENT 35640; aban[battlefield] - npcid = 15002
+E RUN_EVENT 12; Continue with aban[battlefield] menu
+END
+
+EVENT 50; laedith[forgotten temple] - npcid = 16082
+E RUN_EVENT 2019; Continue with laedith[forgotten temple] menu
+END
+;-------------------------------------------------------------------------
+;------------------------------Main Quests--------------------------------
+EVENT 1; Speciallity
+E RUN_EVENT 2001; Continue with speciallity menu
+END
+
+EVENT 2; Reskill\Restat
+E RUN_EVENT 4001; run reskill\restat menu
+END
+
+EVENT 3; New warrior mission
+E RUN_EVENT 3006; check if the user allready done New warrior mission
+E RUN_EVENT 2003; New warrior mission menu
+END
+
+EVENT 4; Goblin armor
+E RUN_EVENT 2004; Goblin armor menu
+END
+
+EVENT 5; Silan armor
+E RUN_EVENT 3042; check if the user is below lvl 15
+E RUN_EVENT 2006; Silan armor menu
+END
+
+EVENT 6; Armor of destruction
+E RUN_EVENT 2007; Armor of destruction menu
+END
+
+EVENT 7; Talia skin
+E RUN_EVENT 2009; Talia skin menu
+END
+
+EVENT 8; Abyss gym
+E RUN_EVENT 2012; Abyss gym menu
+END
+
+EVENT 9; Forgotten temple blue chest
+E RUN_EVENT 2015; Forgotten temple blue chest menu
+END
+
+EVENT 10; Forgotten temple green chest
+E RUN_EVENT 2016; Forgotten temple green chest menu
+END
+
+EVENT 11; Beginner quest
+E RUN_EVENT 2017; Beginner quest menu
+END
+
+EVENT 12; Battlefield
+E RUN_EVENT 2018; aban[battlefield] menu
+END
+
+EVENT 13; Forgotten Temple 46-59
+E RUN_EVENT 2020; Forgotten Temple 46-59 menu
+END
+
+EVENT 14; Forgotten Temple 60+
+E RUN_EVENT 2021; Forgotten Temple 60+ menu
+END
+;-------------------------------Checks------------------------------------
+EVENT 3000; check if user lvl is below 10
+A CHECK_LV 1 9
+E SAY 21001 -1 21110 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3001; check if the user class is warrior with speciality
+A CHECK_CLASS 105 106 205 206 -1 -1
+E SAY 21001 -1 21115 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3002; check if the user class is rogue with speciality
+A CHECK_CLASS 107 108 207 208 -1 -1
+E SAY 21001 -1 21116 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3003; check if the user class is mage with speciality
+A CHECK_CLASS 109 110 209 210 -1 -1
+E SAY 21001 -1 21117 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3004; check if the user class is priest with speciality
+A CHECK_CLASS 111 112 211 212 -1 -1
+E SAY 21001 -1 21118 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3005; check if the user got atleast 3k noah
+A CHECK_NOAH 0 2999
+E SAY -1 -1 21123 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+;----------------------------------------------------------------
+EVENT 3006; check if the user allready done New warrior mission
+A CHECK_EXIST_EVENT 3 2
+E SAY -1 -1 10110 -1 -1  -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3007; check if the user got less than 5 Silk Bundle
+A HOWMUCH_ITEM 379048000 0 4
+E SAY 1060 -1 10120 -1 -1 -1 -1  -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3008; check if the user class is warrior(New warrior mission)
+E RUN_EVENT 3006; check if the user allready done New warrior mission
+E RUN_EVENT 3007; check if the user got less than 5 Silk Bundle
+E RUN_EVENT 3998; check if the user got atleast 3 rooms in his inventory
+A CHECK_CLASS 105 106 205 206 101 201
+E EXP_CHANGE 50; give the user 50 exp
+E SAY 7060 -1 10150 -1 -1 -1 -1  -1 -1 -1 -1 -1
+E SAVE_EVENT 3 2; save the event
+E RUN_EXCHANGE 1
+END
+
+EVENT 3009; check if the user class is rogue(New warrior mission)
+E RUN_EVENT 3006; check if the user allready done New warrior mission
+E RUN_EVENT 3007; check if the user got less than 5 Silk Bundle
+E RUN_EVENT 3998; check if the user got atleast 3 rooms in his inventory
+A CHECK_CLASS 107 108 207 208 102 202
+E EXP_CHANGE 50; give the user 50 exp
+E SAY 7060 -1 10150 -1 -1 -1 -1  -1 -1 -1 -1 -1
+E SAVE_EVENT 3 2; save the event
+E RUN_EXCHANGE 2
+END
+
+EVENT 3010; check if the user class is mage(New warrior mission)
+E RUN_EVENT 3006; check if the user allready done New warrior mission
+E RUN_EVENT 3007; check if the user got less than 5 Silk Bundle
+E RUN_EVENT 3998; check if the user got atleast 3 rooms in his inventory
+A CHECK_CLASS 109 110 209 210 103 203
+E EXP_CHANGE 50; give the user 50 exp
+E SAY 7060 -1 10150 -1 -1 -1 -1  -1 -1 -1 -1 -1
+E SAVE_EVENT 3 2; save the event
+E RUN_EXCHANGE 3
+END
+
+EVENT 3011; check if the user class is priest(New warrior mission)
+E RUN_EVENT 3006; check if the user allready done New warrior mission
+E RUN_EVENT 3007; check if the user got less than 5 Silk Bundle
+E RUN_EVENT 3998; check if the user got atleast 3 rooms in his inventory
+A CHECK_CLASS 111 112 211 212 104 204
+E EXP_CHANGE 50; give the user 50 exp
+E SAY 7060 -1 10150 -1 -1 -1 -1  -1 -1 -1 -1 -1
+E SAVE_EVENT 3 2; save the event
+E RUN_EXCHANGE 4
+END
+;----------------------------------------------------------------
+EVENT 3012; check if the user got less than 100k noah
+A CHECK_NOAH 0 99999
+E SAY 7251 -1 7170 7220 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3013; check if the user got less than 5 goblin pauld
+A HOWMUCH_ITEM 379049000 0 4
+E SAY 7251 -1 7160 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3014; check if the user class is warrior(Goblin armor Pauld)
+E RUN_EVENT 3012; check if the user got less than 100k noah
+E RUN_EVENT 3013; check if the user got less than 5 goblin pauld
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 105 106 205 206 101 201
+E ROB_NOAH 100000
+E RUN_EXCHANGE 7110
+END
+
+EVENT 3015; check if the user class is rogue(Goblin armor Pauld)
+E RUN_EVENT 3012; check if the user got less than 100k noah
+E RUN_EVENT 3013; check if the user got less than 5 goblin pauld
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 107 108 207 208 102 202
+E ROB_NOAH 100000
+E RUN_EXCHANGE 7120
+END
+
+EVENT 3016; check if the user class is mage(Goblin armor Pauld)
+E RUN_EVENT 3012; check if the user got less than 100k noah
+E RUN_EVENT 3013; check if the user got less than 5 goblin pauld
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 109 110 209 210 103 203
+E ROB_NOAH 100000
+E RUN_EXCHANGE 7130
+END
+
+EVENT 3017; check if the user class is priest(Goblin armor Pauld)
+E RUN_EVENT 3012; check if the user got less than 100k noah
+E RUN_EVENT 3013; check if the user got less than 5 goblin pauld
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 111 112 211 212 104 204
+E ROB_NOAH 100000
+E RUN_EXCHANGE 7140
+END
+----------------------------------------------------------------
+EVENT 3018; check if the user got less than 80k noah
+A CHECK_NOAH 0 79999
+E SAY 7251 -1 7170 7230 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3019; check if the user got less than 5 goblin pad
+A HOWMUCH_ITEM 379050000 0 4
+E SAY 7251 -1 7160 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3020; check if the user class is warrior(Goblin armor Pad)
+E RUN_EVENT 3018; check if the user got less than 80k noah
+E RUN_EVENT 3019; check if the user got less than 5 goblin pad
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 105 106 205 206 101 201
+E ROB_NOAH 80000
+E RUN_EXCHANGE 7150
+END
+
+EVENT 3021; check if the user class is rogue(Goblin pad)
+E RUN_EVENT 3018; check if the user got less than 80k noah
+E RUN_EVENT 3019; check if the user got less than 5 goblin pad
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 107 108 207 208 102 202
+E ROB_NOAH 80000
+E RUN_EXCHANGE 7160
+END
+
+EVENT 3022; check if the user class is mage(Goblin pad)
+E RUN_EVENT 3018; check if the user got less than 80k noah
+E RUN_EVENT 3019; check if the user got less than 5 goblin pad
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 109 110 209 210 103 203
+E ROB_NOAH 80000
+E RUN_EXCHANGE 7170
+END
+
+EVENT 3023; check if the user class is priest(Goblin armor pad)
+E RUN_EVENT 3018; check if the user got less than 80k noah
+E RUN_EVENT 3019; check if the user got less than 5 goblin pad
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 111 112 211 212 104 204
+E ROB_NOAH 80000
+E RUN_EXCHANGE 7180
+END
+;----------------------------------------------------------------
+EVENT 3024; check if the user got less than 50k noah
+A CHECK_NOAH 0 49999
+E SAY 7251 -1 7170 7240 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3025; check if the user got less than 5 goblin helmet
+A HOWMUCH_ITEM 379051000 0 4
+E SAY 7251 -1 7160 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3026; check if the user class is warrior(Goblin armor helmet)
+E RUN_EVENT 3024; check if the user got less than 50k noah
+E RUN_EVENT 3025; check if the user got less than 5 goblin helmet
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 105 106 205 206 101 201
+E ROB_NOAH 50000
+E RUN_EXCHANGE 7190
+END
+
+EVENT 3027; check if the user class is rogue(Goblin armor helmet)
+E RUN_EVENT 3024; check if the user got less than 50k noah
+E RUN_EVENT 3025; check if the user got less than 5 goblin helmet
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 107 108 207 208 102 202
+E ROB_NOAH 50000
+E RUN_EXCHANGE 7200
+END
+
+EVENT 3028; check if the user class is mage(Goblin armor helmet)
+E RUN_EVENT 3024; check if the user got less than 50k noah
+E RUN_EVENT 3025; check if the user got less than 5 goblin helmet
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 109 110 209 210 103 203
+E ROB_NOAH 50000
+E RUN_EXCHANGE 7210
+END
+
+EVENT 3029; check if the user class is priest(Goblin armor helmet)
+E RUN_EVENT 3024; check if the user got less than 50k noah
+E RUN_EVENT 3025; check if the user got less than 5 goblin helmet
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 111 112 211 212 104 204
+E ROB_NOAH 50000
+E RUN_EXCHANGE 7220
+END
+;----------------------------------------------------------------
+EVENT 3030; check if the user got less than 40k noah
+A CHECK_NOAH 0 39999
+E SAY 7251 -1 7170 7250 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3031; check if the user got less than 5 goblin guantlet
+A HOWMUCH_ITEM 379052000 0 4
+E SAY 7251 -1 7160 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3032; check if the user class is warrior(Goblin armor guantlet)
+E RUN_EVENT 3030; check if the user got less than 40k noah
+E RUN_EVENT 3031; check if the user got less than 5 goblin guantlet
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 105 106 205 206 101 201
+E ROB_NOAH 40000
+E RUN_EXCHANGE 7230
+END
+
+EVENT 3033; check if the user class is rogue(Goblin armor guantlet)
+E RUN_EVENT 3030; check if the user got less than 40k noah
+E RUN_EVENT 3031; check if the user got less than 5 goblin guantlet
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 107 108 207 208 102 202
+E ROB_NOAH 40000
+E RUN_EXCHANGE 7240
+END
+
+EVENT 3034; check if the user class is mage(Goblin armor guantlet)
+E RUN_EVENT 3030; check if the user got less than 40k noah
+E RUN_EVENT 3031; check if the user got less than 5 goblin guantlet
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 109 110 209 210 103 203
+E ROB_NOAH 40000
+E RUN_EXCHANGE 7250
+END
+
+EVENT 3035; check if the user class is priest(Goblin armor guantlet)
+E RUN_EVENT 3030; check if the user got less than 40k noah
+E RUN_EVENT 3031; check if the user got less than 5 goblin guantlet
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 111 112 211 212 104 204
+E ROB_NOAH 40000
+E RUN_EXCHANGE 7260
+END
+;----------------------------------------------------------------
+EVENT 3036; check if the user got less than 30k noah
+A CHECK_NOAH 0 29999
+E SAY 7251 -1 7170 7260 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3037; check if the user got less than 5 goblin boots
+A HOWMUCH_ITEM 379053000 0 4
+E SAY 7251 -1 7160 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3038; check if the user class is warrior(Goblin armor boots)
+E RUN_EVENT 3036; check if the user got less than 30k noah
+E RUN_EVENT 3037; check if the user got less than 5 goblin boots
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 105 106 205 206 101 201
+E ROB_NOAH 30000
+E RUN_EXCHANGE 7270
+END
+
+EVENT 3039; check if the user class is rogue(Goblin armor boots)
+E RUN_EVENT 3036; check if the user got less than 30k noah
+E RUN_EVENT 3037; check if the user got less than 5 goblin boots
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 107 108 207 208 102 202
+E ROB_NOAH 30000
+E RUN_EXCHANGE 7280
+END
+
+EVENT 3040; check if the user class is mage(Goblin armor boots)
+E RUN_EVENT 3036; check if the user got less than 30k noah
+E RUN_EVENT 3037; check if the user got less than 5 goblin boots
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 109 110 209 210 103 203
+E ROB_NOAH 30000
+E RUN_EXCHANGE 7290
+END
+
+EVENT 3041; check if the user class is priest(Goblin armor boots)
+E RUN_EVENT 3036; check if the user got less than 30k noah
+E RUN_EVENT 3037; check if the user got less than 5 goblin boots
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 111 112 211 212 104 204
+E ROB_NOAH 30000
+E RUN_EXCHANGE 7300
+END
+;----------------------------------------------------------------
+EVENT 3042; check if the user is below lvl 15
+A CHECK_LV 1 14
+E SAY 14301 -1 7701 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3043; check if the user got less than 50k noah
+A CHECK_NOAH 0 49999
+E SAY -1 -1 7707 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3044; check if the user got less than 5 Silan bones
+A HOWMUCH_ITEM 379077000 0 4
+E SAY -1 -1 7708 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3045; check if the user got less than 5 Iron bars
+A HOWMUCH_ITEM 379076000 0 4
+E SAY -1 -1 7706 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3046; check if the user class is warrior(Silan armor)
+E RUN_EVENT 3043; check if the user got less than 50k noah
+E RUN_EVENT 3044; check if the user got less than 5 Silan bones
+E RUN_EVENT 3045; check if the user got less than 5 Iron bars
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 105 106 205 206 101 201
+E ROB_NOAH 50000
+E RUN_EXCHANGE 21301
+END
+
+EVENT 3047; check if the user class is rogue(Silan armor)
+E RUN_EVENT 3043; check if the user got less than 50k noah
+E RUN_EVENT 3044; check if the user got less than 5 Silan bones
+E RUN_EVENT 3045; check if the user got less than 5 Iron bars
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 107 108 207 208 102 202
+E ROB_NOAH 50000
+E RUN_EXCHANGE 21302
+END
+
+EVENT 3048; check if the user class is mage(Silan armor)
+E RUN_EVENT 3043; check if the user got less than 50k noah
+E RUN_EVENT 3044; check if the user got less than 5 Silan bones
+E RUN_EVENT 3045; check if the user got less than 5 Iron bars
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 109 110 209 210 103 203
+E ROB_NOAH 50000
+E RUN_EXCHANGE 21303
+END
+
+EVENT 3049; check if the user class is priest(Silan armor)
+E RUN_EVENT 3043; check if the user got less than 50k noah
+E RUN_EVENT 3044; check if the user got less than 5 Silan bones
+E RUN_EVENT 3045; check if the user got less than 5 Iron bars
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 111 112 211 212 104 204
+E ROB_NOAH 50000
+E RUN_EXCHANGE 21304
+END
+;----------------------------------------------------------------
+EVENT 3050; check if the user got less than 500k noah
+A CHECK_NOAH 0 499999
+E SAY 7551 -1 7566 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3051; check if the user got less than 15 Iron bars
+A HOWMUCH_ITEM 379076000 0 14
+E SAY 7551 -1 7571 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3052; check if the user got less than 7 Talisman of destruction
+A HOWMUCH_ITEM 379071000 0 6
+E SAY 7551 -1 7576 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3053; check if the user class is warrior(Destruction pauld)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3051; check if the user got less than 15 Iron bars
+E RUN_EVENT 3052; check if the user got less than 7 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 105 106 205 206 101 201
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7591
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 3054; check if the user class is rogue(Destruction pauld)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3051; check if the user got less than 15 Iron bars
+E RUN_EVENT 3052; check if the user got less than 7 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 107 108 207 208 102 202
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7596
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 3055; check if the user class is mage(Destruction pauld)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3051; check if the user got less than 15 Iron bars
+E RUN_EVENT 3052; check if the user got less than 7 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 109 110 209 210 103 203
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7601
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 3056; check if the user class is priest(Destruction pauld)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3051; check if the user got less than 15 Iron bars
+E RUN_EVENT 3052; check if the user got less than 7 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 111 112 211 212 104 204
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7606
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+;----------------------------------------------------------------
+EVENT 3057; check if the user got less than 11 Iron bars
+A HOWMUCH_ITEM 379076000 0 11
+E SAY 7551 -1 7571 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3058; check if the user got less than 5 Talisman of destruction
+A HOWMUCH_ITEM 379071000 0 4
+E SAY 7551 -1 7577 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3059; check if the user class is warrior(Destruction pad)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3057; check if the user got less than 12 Iron bars
+E RUN_EVENT 3058; check if the user got less than 5 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 105 106 205 206 101 201
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7592
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 3060; check if the user class is rogue(Destruction pad)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3057; check if the user got less than 12 Iron bars
+E RUN_EVENT 3058; check if the user got less than 5 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 107 108 207 208 102 202
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7597
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 3061; check if the user class is mage(Destruction pad)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3057; check if the user got less than 12 Iron bars
+E RUN_EVENT 3058; check if the user got less than 5 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 109 110 209 210 103 203
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7602
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 3062; check if the user class is priest(Destruction pad)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3057; check if the user got less than 12 Iron bars
+E RUN_EVENT 3058; check if the user got less than 5 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 111 112 211 212 104 204
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7607
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+;----------------------------------------------------------------
+EVENT 3063; check if the user got less than 9 Iron bars
+A HOWMUCH_ITEM 379076000 0 8
+E SAY 7551 -1 7571 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3064; check if the user got less than 4 Talisman of destruction
+A HOWMUCH_ITEM 379071000 0 3
+E SAY 7551 -1 7577 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3065; check if the user class is warrior(Destruction helmet)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3063; check if the user got less than 9 Iron bars
+E RUN_EVENT 3064; check if the user got less than 4 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 105 106 205 206 101 201
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7593
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 3066; check if the user class is roge(Destruction helmet)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3063; check if the user got less than 9 Iron bars
+E RUN_EVENT 3064; check if the user got less than 4 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 107 108 207 208 102 202
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7598
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 3067; check if the user class is mage(Destruction helmet)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3063; check if the user got less than 9 Iron bars
+E RUN_EVENT 3064; check if the user got less than 4 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 109 110 209 210 103 203
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7603
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 3068; check if the user class is priest(Destruction helmet)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3063; check if the user got less than 9 Iron bars
+E RUN_EVENT 3064; check if the user got less than 4 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 111 112 211 212 104 204
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7608
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+;----------------------------------------------------------------
+EVENT 3069; check if the user got less than 6 Iron bars
+A HOWMUCH_ITEM 379076000 0 5
+E SAY 7551 -1 7571 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3070; check if the user got less than 3 Talisman of destruction
+A HOWMUCH_ITEM 379071000 0 2
+E SAY 7551 -1 7577 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3071; check if the user class is warrior(Destruction guantlet)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3069; check if the user got less than 6 Iron bars
+E RUN_EVENT 3070; check if the user got less than 3 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 105 106 205 206 101 201
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7594
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 3072; check if the user class is rogue(Destruction guantlet)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3069; check if the user got less than 6 Iron bars
+E RUN_EVENT 3070; check if the user got less than 3 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 107 108 207 208 102 202
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7599
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 3073; check if the user class is mage(Destruction guantlet)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3069; check if the user got less than 6 Iron bars
+E RUN_EVENT 3070; check if the user got less than 3 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 109 110 209 210 103 203
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7604
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 3074; check if the user class is priest(Destruction guantlet)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3069; check if the user got less than 6 Iron bars
+E RUN_EVENT 3070; check if the user got less than 3 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 111 112 211 212 104 204
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7609
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+;----------------------------------------------------------------
+EVENT 3075; check if the user got less than 3 Iron bars
+A HOWMUCH_ITEM 379076000 0 2
+E SAY 7551 -1 7571 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3076; check if the user class is warrior(Destruction boots)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3075; check if the user got less than 3 Iron bars
+E RUN_EVENT 3070; check if the user got less than 3 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 105 106 205 206 101 201
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7595
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 3077; check if the user class is rogue(Destruction boots)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3075; check if the user got less than 3 Iron bars
+E RUN_EVENT 3070; check if the user got less than 3 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 107 108 207 208 102 202
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7600
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 3078; check if the user class is mage(Destruction boots)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3075; check if the user got less than 3 Iron bars
+E RUN_EVENT 3070; check if the user got less than 3 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 109 110 209 210 103 203
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7605
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 3079; check if the user class is priest(Destruction boots)
+E RUN_EVENT 3050; check if the user got less than 500k noah
+E RUN_EVENT 3075; check if the user got less than 3 Iron bars
+E RUN_EVENT 3070; check if the user got less than 3 Talisman of destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_CLASS 111 112 211 212 104 204
+E ROB_NOAH 500000
+E RUN_EXCHANGE 7610
+E SAY 7551 -1 7591 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+;----------------------------------------------------------------
+EVENT 3080; check if the user got less than 5 Talisman of talia
+A HOWMUCH_ITEM 379072000 0 4
+E SAY -1 -1 7631 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3081; check if the user got atleast 500k noah
+A CHECK_NOAH 0 499999
+E SAY 7627 -1 7632 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3082; check if the user got less than 1 crystal
+A HOWMUCH_ITEM 389075000 0 0
+E SAY -1 -1 7633 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3083; check if the user got less than 1 warrior Pauldron of Destruction
+A HOWMUCH_ITEM 203011337 0 0
+E SAY -1 -1 7642 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3084; check if the user got less than 1 rogue Pauldron of Destruction
+A HOWMUCH_ITEM 243011338 0 0
+E SAY -1 -1 7652 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3085; check if the user got less than 1 mage Pauldron of Destruction
+A HOWMUCH_ITEM 263011339 0 0
+E SAY -1 -1 7662 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3086; check if the user got less than 1 priest Pauldron of Destruction
+A HOWMUCH_ITEM 283011340 0 0
+E SAY -1 -1 7672 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3087; Talia skin sub menu
+E RUN_EVENT 3080; check if the user got less than 5 Talisman of talia
+E RUN_EVENT 3081; check if the user got atleast 500k noah
+E RUN_EVENT 3082; check if the user got less than 1 crystal
+E RUN_EVENT 2010; run talia skin sub menu
+END
+;----------------------------------------------------------------
+EVENT 3088; Talia skin warrior
+E RUN_EVENT 3080; check if the user got less than 5 Talisman of talia
+E RUN_EVENT 3081; check if the user got atleast 500k noah
+E RUN_EVENT 3082; check if the user got less than 1 crystal
+E RUN_EVENT 3083; check if the user got less than 1 warrior Pauldron of Destruction
+E ROLL_DICE 2; roll dice
+E RUN_EVENT 3089; check if roll is 1
+E RUN_EVENT 3090; check if roll is 2
+END
+
+EVENT 3089; check dice 1 for Talia skin warrior
+E RUN_EVENT 3080; check if the user got less than 5 Talisman of talia
+E RUN_EVENT 3081; check if the user got atleast 500k noah
+E RUN_EVENT 3082; check if the user got less than 1 crystal
+E RUN_EVENT 3083; check if the user got less than 1 warrior Pauldron of Destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_DICE 1
+E RUN_EXCHANGE 7645
+END
+
+EVENT 3090; check dice 2 for Talia skin warrior
+E RUN_EVENT 3080; check if the user got less than 5 Talisman of talia
+E RUN_EVENT 3081; check if the user got atleast 500k noah
+E RUN_EVENT 3082; check if the user got less than 1 crystal
+E RUN_EVENT 3083; check if the user got less than 1 warrior Pauldron of Destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_DICE 2
+E RUN_EXCHANGE 7646
+END
+;----------------------------------------------------------------
+EVENT 3091; Talia skin rogue
+E RUN_EVENT 3080; check if the user got less than 5 Talisman of talia
+E RUN_EVENT 3081; check if the user got atleast 500k noah
+E RUN_EVENT 3082; check if the user got less than 1 crystal
+E RUN_EVENT 3084; check if the user got less than 1 rogue Pauldron of Destruction
+E ROLL_DICE 2; roll dice
+E RUN_EVENT 3092; check if roll is 1
+E RUN_EVENT 3093; check if roll is 2
+END
+
+EVENT 3092; check dice 1 for Talia skin rogue
+E RUN_EVENT 3080; check if the user got less than 5 Talisman of talia
+E RUN_EVENT 3081; check if the user got atleast 500k noah
+E RUN_EVENT 3082; check if the user got less than 1 crystal
+E RUN_EVENT 3084; check if the user got less than 1 rogue Pauldron of Destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_DICE 1
+E RUN_EXCHANGE 7655
+END
+
+EVENT 3093; check dice 2 for Talia skin rogue
+E RUN_EVENT 3080; check if the user got less than 5 Talisman of talia
+E RUN_EVENT 3081; check if the user got atleast 500k noah
+E RUN_EVENT 3082; check if the user got less than 1 crystal
+E RUN_EVENT 3084; check if the user got less than 1 rogue Pauldron of Destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_DICE 2
+E RUN_EXCHANGE 7656
+END
+;----------------------------------------------------------------
+EVENT 3094; Talia skin mage
+E RUN_EVENT 3080; check if the user got less than 5 Talisman of talia
+E RUN_EVENT 3081; check if the user got atleast 500k noah
+E RUN_EVENT 3082; check if the user got less than 1 crystal
+E RUN_EVENT 3085; check if the user got less than 1 mage Pauldron of Destruction
+E ROLL_DICE 2; roll dice
+E RUN_EVENT 3095; check if roll is 1
+E RUN_EVENT 3096; check if roll is 2
+END
+
+EVENT 3095; check dice 1 for Talia skin mage
+E RUN_EVENT 3080; check if the user got less than 5 Talisman of talia
+E RUN_EVENT 3081; check if the user got atleast 500k noah
+E RUN_EVENT 3082; check if the user got less than 1 crystal
+E RUN_EVENT 3085; check if the user got less than 1 mage Pauldron of Destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_DICE 1
+E RUN_EXCHANGE 7665
+END
+
+EVENT 3096; check dice 2 for Talia skin mage
+E RUN_EVENT 3080; check if the user got less than 5 Talisman of talia
+E RUN_EVENT 3081; check if the user got atleast 500k noah
+E RUN_EVENT 3082; check if the user got less than 1 crystal
+E RUN_EVENT 3085; check if the user got less than 1 mage Pauldron of Destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_DICE 2
+E RUN_EXCHANGE 7666
+END
+;----------------------------------------------------------------
+EVENT 3097; Talia skin priest
+E RUN_EVENT 3080; check if the user got less than 5 Talisman of talia
+E RUN_EVENT 3081; check if the user got atleast 500k noah
+E RUN_EVENT 3082; check if the user got less than 1 crystal
+E RUN_EVENT 3086; check if the user got less than 1 priest Pauldron of Destruction
+E ROLL_DICE 2; roll dice
+E RUN_EVENT 3098; check if roll is 1
+E RUN_EVENT 3099; check if roll is 2
+END
+
+EVENT 3098; check dice 1 for Talia skin priest
+E RUN_EVENT 3080; check if the user got less than 5 Talisman of talia
+E RUN_EVENT 3081; check if the user got atleast 500k noah
+E RUN_EVENT 3082; check if the user got less than 1 crystal
+E RUN_EVENT 3086; check if the user got less than 1 priest Pauldron of Destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_DICE 1
+E RUN_EXCHANGE 7675
+END
+
+EVENT 3099; check dice 2 for Talia skin priest
+E RUN_EVENT 3080; check if the user got less than 5 Talisman of talia
+E RUN_EVENT 3081; check if the user got atleast 500k noah
+E RUN_EVENT 3082; check if the user got less than 1 crystal
+E RUN_EVENT 3086; check if the user got less than 1 priest Pauldron of Destruction
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_DICE 2
+E RUN_EXCHANGE 7676
+END
+;----------------------------------------------------------------
+EVENT 3100; check if the user got less than 1 Abyss gym
+A HOWMUCH_ITEM 379106000 0 0
+E SAY -1 -1 35245 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3101; Abyss gym exchange
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+E ROLL_DICE 20
+E RUN_EVENT 3102; check if roll is 1
+E RUN_EVENT 3103; check if roll is 2
+E RUN_EVENT 3104; check if roll is 3
+E RUN_EVENT 3105; check if roll is 4
+E RUN_EVENT 3106; check if roll is 5
+E RUN_EVENT 3107; check if roll is 6
+E RUN_EVENT 3108; check if roll is 7
+E RUN_EVENT 3109; check if roll is 8
+E RUN_EVENT 3110; check if roll is 9
+E RUN_EVENT 3111; check if roll is 10
+E RUN_EVENT 3112; check if roll is 11
+E RUN_EVENT 3113; check if roll is 12
+E RUN_EVENT 3114; check if roll is 13
+E RUN_EVENT 3115; check if roll is 14
+E RUN_EVENT 3116; check if roll is 15
+E RUN_EVENT 3117; check if roll is 16
+E RUN_EVENT 3118; check if roll is 17
+E RUN_EVENT 3119; check if roll is 18
+E RUN_EVENT 3120; check if roll is 19
+E RUN_EVENT 3121; check if roll is 20
+END
+
+EVENT 3102; check dice 1 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 1
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35311
+END
+
+EVENT 3103; check dice 2 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 2
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35312
+END
+
+EVENT 3104; check dice 3 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 3
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35313
+END
+
+EVENT 3105; check dice 4 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 4
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35314
+END
+
+EVENT 3106; check dice 5 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 5
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35315
+END
+
+EVENT 3107; check dice 6 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 6
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35316
+END
+
+EVENT 3108; check dice 7 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 7
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35317
+END
+
+EVENT 3109; check dice 8 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 8
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35318
+END
+
+EVENT 3110; check dice 9 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 9
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35319
+END
+
+EVENT 3111; check dice 10 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 10
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35320
+END
+
+EVENT 3112; check dice 11 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 11
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35321
+END
+
+EVENT 3113; check dice 12 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 12
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35322
+END
+
+EVENT 3114; check dice 13 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 13
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35323
+END
+
+EVENT 3115; check dice 14 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 14
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35324
+END
+
+EVENT 3116; check dice 15 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 15
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35325
+END
+
+EVENT 3117; check dice 16 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 16
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35326
+END
+
+EVENT 3118; check dice 17 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 17
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35327
+END
+
+EVENT 3119; check dice 18 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 18
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35328
+END
+
+EVENT 3120; check dice 19 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 19
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35329
+END
+
+EVENT 3121; check dice 20 for Abyss gym
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3100; check if the user got less than 1 Abyss gym
+A CHECK_DICE 20
+E SAY -1 -1 35271 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 35330
+END
+;----------------------------------------------------------------
+EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A HOWMUCH_ITEM 379156000 0 0
+E SAY -1 -1 76 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3123; Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+E ROLL_DICE 20
+E RUN_EVENT 3124; check if roll is 1
+E RUN_EVENT 3125; check if roll is 2
+E RUN_EVENT 3126; check if roll is 3
+E RUN_EVENT 3127; check if roll is 4
+E RUN_EVENT 3128; check if roll is 5
+E RUN_EVENT 3129; check if roll is 6
+E RUN_EVENT 3130; check if roll is 7
+E RUN_EVENT 3131; check if roll is 8
+E RUN_EVENT 3132; check if roll is 9
+E RUN_EVENT 3133; check if roll is 10
+E RUN_EVENT 3134; check if roll is 11
+E RUN_EVENT 3135; check if roll is 12
+E RUN_EVENT 3136; check if roll is 13
+E RUN_EVENT 3137; check if roll is 14
+E RUN_EVENT 3138; check if roll is 15
+E RUN_EVENT 3139; check if roll is 16
+E RUN_EVENT 3140; check if roll is 17
+E RUN_EVENT 3141; check if roll is 18
+E RUN_EVENT 3142; check if roll is 19
+E RUN_EVENT 3143; check if roll is 20
+END
+
+EVENT 3124; check dice 1 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 1
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 78
+END
+
+EVENT 3125; check dice 2 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 2
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 79
+END
+
+EVENT 3126; check dice 3 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 3
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 80
+END
+
+EVENT 3127; check dice 4 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 4
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 81
+END
+
+EVENT 3128; check dice 5 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 5
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 82
+END
+
+EVENT 3129; check dice 6 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 6
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 83
+END
+
+EVENT 3130; check dice 7 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 7
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 84
+END
+
+EVENT 3131; check dice 8 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 8
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 85
+END
+
+EVENT 3132; check dice 9 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 9
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 86
+END
+
+EVENT 3133; check dice 10 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 10
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 87
+END
+
+EVENT 3134; check dice 11 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 11
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 88
+END
+
+EVENT 3135; check dice 12 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 12
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 89
+END
+
+EVENT 3136; check dice 13 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 13
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 90
+END
+
+EVENT 3137; check dice 14 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 14
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 91
+END
+
+EVENT 3138; check dice 15 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 15
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 92
+END
+
+EVENT 3139; check dice 16 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 16
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 93
+END
+
+EVENT 3140; check dice 17 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 17
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 94
+END
+
+EVENT 3141; check dice 18 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 18
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 95
+END
+
+EVENT 3142; check dice 19 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 19
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 96
+END
+
+EVENT 3143; check dice 20 for Forgotten temple blue chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3122; check if the user got less than 1 Forgotten temple blue chest
+A CHECK_DICE 20
+E SAY -1 -1 78 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 97
+END
+;----------------------------------------------------------------
+EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A HOWMUCH_ITEM 379155000 0 0
+E SAY -1 -1 80 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3145; Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+E ROLL_DICE 20
+E RUN_EVENT 3146; check if roll is 1
+E RUN_EVENT 3147; check if roll is 2
+E RUN_EVENT 3148; check if roll is 3
+E RUN_EVENT 3149; check if roll is 4
+E RUN_EVENT 3150; check if roll is 5
+E RUN_EVENT 3151; check if roll is 6
+E RUN_EVENT 3152; check if roll is 7
+E RUN_EVENT 3153; check if roll is 8
+E RUN_EVENT 3154; check if roll is 9
+E RUN_EVENT 3155; check if roll is 10
+E RUN_EVENT 3156; check if roll is 11
+E RUN_EVENT 3157; check if roll is 12
+E RUN_EVENT 3158; check if roll is 13
+E RUN_EVENT 3159; check if roll is 14
+E RUN_EVENT 3160; check if roll is 15
+E RUN_EVENT 3161; check if roll is 16
+E RUN_EVENT 3162; check if roll is 17
+E RUN_EVENT 3163; check if roll is 18
+E RUN_EVENT 3164; check if roll is 19
+E RUN_EVENT 3165; check if roll is 20
+END
+
+EVENT 3146; check dice 1 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 1
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 104
+END
+
+EVENT 3147; check dice 2 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 2
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 105
+END
+
+EVENT 3148; check dice 3 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 3
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 106
+END
+
+EVENT 3149; check dice 4 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 4
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 107
+END
+
+EVENT 3150; check dice 5 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 5
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 108
+END
+
+EVENT 3151; check dice 6 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 6
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 109
+END
+
+EVENT 3152; check dice 7 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 7
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 110
+END
+
+EVENT 3153; check dice 8 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 8
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 111
+END
+
+EVENT 3154; check dice 9 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 9
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 112
+END
+
+EVENT 3155; check dice 10 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 10
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 113
+END
+
+EVENT 3156; check dice 11 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 11
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 114
+END
+
+EVENT 3157; check dice 12 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 12
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 115
+END
+
+EVENT 3158; check dice 13 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 13
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 116
+END
+
+EVENT 3159; check dice 14 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 14
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 117
+END
+
+EVENT 3160; check dice 15 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 15
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 118
+END
+
+EVENT 3161; check dice 16 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 16
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 119
+END
+
+EVENT 3162; check dice 17 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 17
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 120
+END
+
+EVENT 3163; check dice 18 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 18
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 121
+END
+
+EVENT 3164; check dice 19 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 19
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 122
+END
+
+EVENT 3165; check dice 20 for Forgotten temple green chest
+E RUN_EVENT 3999; check if the user got atleast 1 room in his inventory
+E RUN_EVENT 3144; check if the user got less than 1 Forgotten temple green chest
+A CHECK_DICE 20
+E SAY -1 -1 81 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RUN_EXCHANGE 123
+END
+;----------------------------------------------------------------
+EVENT 3166; check if the user lvl is above lvl 20
+A CHECK_LV 21 99
+E SAY -1 -1 30135 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3167; check if the user allready took the event
+A CHECK_EXIST_EVENT 11 1
+E SAY -1 -1 30137 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+;----------------------------------------------------------------
+EVENT 3168; check if user lvl is above lvl 59
+A CHECK_LV 60 99
+E SAY -1 -1 44 -1 -1 -1 -1 -1 -1 -1 -1 -1;
+E RETURN
+END
+
+EVENT 3169; check if user lvl is below lvl 46
+A CHECK_LV 1 45
+E SAY -1 -1 44 -1 -1 -1 -1 -1 -1 -1 -1 -1;
+E RETURN
+END
+
+EVENT 3170; check if less than 32 ppls are allready in Forgotten Temple
+A CHECK_MONSTER_CHALLENGE_USERCOUNT 32
+E SAY -1 -1 32 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3171; check if the user got less than 100k noah
+A CHECK_NOAH 0 99999
+E SAY -1 -1 48 -1 -1 -1 -1 -1 -1 -1 -1 -1;
+E RETURN
+END
+
+EVENT 3172; check if it is time and execute
+A CHECK_MONSTER_CHALLENGE_TIME 2
+E RUN_EVENT 3168; check if user lvl is above lvl 59
+E RUN_EVENT 3169; check if user lvl is below lvl 46
+E RUN_EVENT 3170; check if less than 32 ppls are allready in Forgotten Temple
+E RUN_EVENT 3171; check if the user got less than 100k noah
+E ROB_NOAH 100000
+E ZONE_CHANGE 55 150 150
+E RETURN
+END
+;----------------------------------------------------------------
+EVENT 3173; check if user lvl is below lvl 60
+A CHECK_LV 1 59
+E SAY -1 -1 30 -1 -1 -1 -1 -1 -1 -1 -1 -1;
+E RETURN
+END
+
+EVENT 3174; check if less than 32 ppls are allready in Forgotten Temple
+A CHECK_MONSTER_CHALLENGE_USERCOUNT 32
+E SAY -1 -1 32 -1 -1 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 3175; check if the user got less than 300k noah
+A CHECK_NOAH 0 299999
+E SAY -1 -1 62 -1 -1 -1 -1 -1 -1 -1 -1 -1;
+E RETURN
+END
+
+EVENT 3176; check if it is time and execute
+A CHECK_MONSTER_CHALLENGE_TIME 3
+E RUN_EVENT 3173; check if user lvl is below lvl 60
+E RUN_EVENT 3174; check if less than 32 ppls are allready in Forgotten Temple
+E RUN_EVENT 3175; check if the user got less than 300k noah
+E ROB_NOAH 300000
+E ZONE_CHANGE 55 150 150
+E RETURN
+END
+;----------------------------------------------------------------
+EVENT 3998; check if the user got atleast 3 rooms in his inventory
+A CHECK_EMPTY_SLOT 0
+E RUN_EVENT 1998
+E RETURN
+END
+
+EVENT 3999; check if the user got atleast 1 room in his inventory
+A CHECK_EMPTY_SLOT 0
+E RUN_EVENT 1999
+E RETURN
+END
+;-------------------------------------------------------------------------
+;--------------------------------Menu-------------------------------------
+EVENT 2000; Captain kunabarl menu
+E SELECT_MSG 13009 21001 21001 1 21002 2 35664 1997 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2001; Speciallity menu
+E SELECT_MSG 13009 21120 21122 4000 21121 1000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2002; Proconsul menu
+E SELECT_MSG 14301 7050 7001 3 7002 4 7701 5 7551 6 7621 7 35664 1997 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2003; New warrior mission menu
+E SELECT_MSG 14301 10130 601 1002 602 4002 35664 1997 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2004; Goblin armor menu
+E SELECT_MSG 14301 7105 7101 1003 7102 2005 35664 1997 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2005; Goblin armor sub menu
+E SELECT_MSG 14301 7150 7201 4003 7202 4004 7203 4005 7204 4006 7205 4007 35664 1997 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2006; Silan armor menu
+E SELECT_MSG 14301 7702 7702 1004 7703 4008 35664 1997 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1  -1 -1
+END
+
+EVENT 2007; Armor of destruction menu
+E SELECT_MSG 14301 7551 7553 1005 7555 2008 35664 1997 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2008; Armor of destruction sub menu
+E SELECT_MSG 14301 7558 7561 4009 7562 4010 7563 4011 7564 4012 7565 4013 35664 1997 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2009; Talia skin menu
+E SELECT_MSG 14301 7621 7623 1006 7625 3087 35664 1997 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2010; Talia skin sub menu
+E SELECT_MSG 14301 7635 7641 4014 7651 4015 7661 4016 7671 4017 35664 1997 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 
+END
+
+EVENT 2011; miraselth[item exchange] menu
+E SELECT_MSG 16011 35203 35232 8 70 2014 35664 1997 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2012; miraselth[item exchange] Abyss gym menu
+E SELECT_MSG 16011 35232 35240 1007 35235 2013 35664 1997 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2013; miraselth[item exchange] Abyss gym sub menu
+E SELECT_MSG 16011 35250 35260 4018 35270 1008 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2014; miraselth[item exchange] Forgotten Temple menu
+E SELECT_MSG 16011 70 77 9 76 10 35664 1997 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2015; miraselth[item exchange] Forgotten Temple blue menu
+E SELECT_MSG 16011 71 73 4019 74 1009 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2016; miraselth[item exchange] Forgotten Temple green menu
+E SELECT_MSG 16011 72 78 4020 79 1010 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1;
+END
+
+EVENT 2017; selith[special store] menu - beginner quest
+E SELECT_MSG 13009 30131 30132 4021 30134 1011 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2018; aban[battlefield] menu
+E SELECT_MSG 16086 35640 35641 4022 35643 1012 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2019; laedith[forgotten temple] menu
+E SELECT_MSG 16082 20509 22 13 22 14 35664 1997 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2020; Forgotten Temple 46-59
+E SELECT_MSG 16081 36 21 1013 22 4023 23 1014 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 2021; Forgotten Temple 60+
+E SELECT_MSG 16082 50 21 1016 22 4024 23 1017 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+;-------------------------------------------------------------------------
+;-------------------------------Messages----------------------------------
+EVENT 1000; come back later speciallity
+E SAY 21001 -1 21121 -1 -1 -1 -1 -1 -1 -1
+E RETURN
+END
+
+EVENT 1001; You got ur speciallity
+E SAY -1 -1 21146 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1002; explain about New warrior mission
+E SAY 7060 -1 10140 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1003; explain about Goblin armor
+E SAY 7240 -1 7110 7120 7130 7140 7145 -1 -1 -1 -1 -1
+END
+
+EVENT 1004; explain about Silan armor
+E SAY 7720 -1 7703 7704 7705 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1005; explain about Armor of destruction
+E SAY 7551 -1 7553 7554 7555 7556 7557 -1 -1 -1 -1 -1
+END
+
+EVENT 1006; explain about Talia skin
+E SAY 7621 -1 7623 7624 7625 7626 7627 -1 -1 -1 -1 -1
+END
+
+EVENT 1007; explain about Abyss gym
+E SAY -1 -1 35240 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1008; Abyss gym come back later
+E SAY -1 -1 35270 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1009; Forgotten Temple blue, come back later
+E SAY -1 -1 74 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1010; Forgotten Temple green, come back later
+E SAY -1 -1 79 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1011; Beginner quest, walk away
+E SAY -1 -1 30134 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1012; Battlefield, walk away
+E SAY -1 -1 35643 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1013; explain about Forgotten Temple for 46-59
+E SAY 36 36 21 22 23 24 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1014; Forgotten Temple for 46-59, walk away
+E SAY -1 -1 25 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1015; Forgotten Temple for 46-59, wrong time
+E SAY -1 -1 41 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1016; explain about Forgotten Temple for 60+
+E SAY 50 50 21 22 23 24 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1017; Forgotten Temple for 60+, walk away
+E SAY -1 -1 25 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1018; Forgotten Temple for 60+, wrong time
+E SAY -1 -1 55 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1997; walk away
+E SAY -1 -1 35643 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 1998; need 3 slots in your inventory
+E SAY -1 -1 35653 -1 -1 -1 -1  -1 -1 -1 -1 -1
+END
+
+EVENT 1999; need 1 slot in your invenotry
+E SAY -1 -1 35670 -1 -1 -1 -1  -1 -1 -1 -1 -1
+END
+;-------------------------------------------------------------------------
+;----------------------------------Run------------------------------------
+EVENT 4000; Speciallity
+E RUN_EVENT 3000; check if user lvl is below 10
+E RUN_EVENT 3001; check if the user class is warrior with speciality
+E RUN_EVENT 3002; check if the user class is rogue with speciality
+E RUN_EVENT 3003; check if the user class is mage with speciality
+E RUN_EVENT 3004; check if the user class is priest with speciality
+E RUN_EVENT 3005; check if the user got atleast 3k gold
+E ROB_NOAH 3000
+E PROMOTE_USER_NOVICE
+E RUN_EVENT 1001
+END
+
+EVENT 4001; Reskill\Restat
+E STAT_POINT_DISTRIBUTE
+END
+
+EVENT 4002; Take New warrior mission Reward
+E RUN_EVENT 3008; check if the user class is warrior
+E RUN_EVENT 3009; check if the user class is rogue
+E RUN_EVENT 3010; check if the user class is mage
+E RUN_EVENT 3011; check if the user class is priest
+END
+
+EVENT 4003; Exchange goblin puald
+E RUN_EVENT 3014; check if the user class is warrior
+E RUN_EVENT 3015; check if the user class is rogue
+E RUN_EVENT 3016; check if the user class is mage
+E RUN_EVENT 3017; check if the user class is priest
+END
+
+EVENT 4004; Exchange goblin pad
+E RUN_EVENT 3020; check if the user class is warrior
+E RUN_EVENT 3021; check if the user class is rogue
+E RUN_EVENT 3022; check if the user class is mage
+E RUN_EVENT 3023; check if the user class is priest
+END
+
+EVENT 4005; Exchange goblin helmet
+E RUN_EVENT 3026; check if the user class is warrior
+E RUN_EVENT 3027; check if the user class is rogue
+E RUN_EVENT 3028; check if the user class is mage
+E RUN_EVENT 3029; check if the user class is priest
+END
+
+EVENT 4006; Exchange goblin guantlet
+E RUN_EVENT 3032; check if the user class is warrior
+E RUN_EVENT 3033; check if the user class is rogue
+E RUN_EVENT 3034; check if the user class is mage
+E RUN_EVENT 3035; check if the user class is priest
+END
+
+EVENT 4007; Exchange goblin boots
+E RUN_EVENT 3038; check if the user class is warrior
+E RUN_EVENT 3039; check if the user class is rogue
+E RUN_EVENT 3040; check if the user class is mage
+E RUN_EVENT 3041; check if the user class is priest
+END
+
+EVENT 4008; Exchange silan
+E RUN_EVENT 3046; check if the user class is warrior
+E RUN_EVENT 3047; check if the user class is rogue
+E RUN_EVENT 3048; check if the user class is mage
+E RUN_EVENT 3049; check if the user class is priest
+END
+
+EVENT 4009; Exchange Armor of destruction Puald
+E RUN_EVENT 3053; check if the user class is warrior
+E RUN_EVENT 3054; check if the user class is rogue
+E RUN_EVENT 3055; check if the user class is mage
+E RUN_EVENT 3056; check if the user class is priest
+END
+
+EVENT 4010; Exchange Armor of destruction Pad
+E RUN_EVENT 3059; check if the user class is warrior
+E RUN_EVENT 3060; check if the user class is rogue
+E RUN_EVENT 3061; check if the user class is mage
+E RUN_EVENT 3062; check if the user class is priest
+END
+
+EVENT 4011; Exchange Armor of destruction Helmet
+E RUN_EVENT 3065; check if the user class is warrior
+E RUN_EVENT 3066; check if the user class is rogue
+E RUN_EVENT 3067; check if the user class is mage
+E RUN_EVENT 3068; check if the user class is priest
+END
+
+EVENT 4012; Exchange Armor of destruction Guantlet
+E RUN_EVENT 3071; check if the user class is warrior
+E RUN_EVENT 3072; check if the user class is rogue
+E RUN_EVENT 3073; check if the user class is mage
+E RUN_EVENT 3074; check if the user class is priest
+END
+
+EVENT 4013; Exchange Armor of destruction Boots
+E RUN_EVENT 3076; check if the user class is warrior
+E RUN_EVENT 3077; check if the user class is rogue
+E RUN_EVENT 3078; check if the user class is mage
+E RUN_EVENT 3079; check if the user class is priest
+END
+
+EVENT 4014; Talia skin warrior
+E RUN_EVENT 3088; run warrior exchange
+END
+
+EVENT 4015; Talia skin rogue
+E RUN_EVENT 3091; run rogue exchange
+END
+
+EVENT 4016; Talia skin mage
+E RUN_EVENT 3094; run mage exchange
+END
+
+EVENT 4017; Talia skin priest
+E RUN_EVENT 3097; run priest exchange
+END
+
+EVENT 4018; Abyss gym exchange
+E RUN_EVENT 3101; run Abyss gym exchange
+END
+
+EVENT 4019; Forgotten temple blue exchange
+E RUN_EVENT 3123; run Forgotten temple blue exchange
+END
+
+EVENT 4020; Forgotten temple green exchange
+E RUN_EVENT 3145; run Forgotten temple green exchange
+END
+
+EVENT 4021; Beginner quest
+E RUN_EVENT 3166; check if the user lvl is below lvl 21
+E RUN_EVENT 3167; check if the user allready took the event
+E SAVE_EVENT 11 1
+E STATE_CHANGE 8 1
+E SAY -1 -1 30138 -1 -1 -1 -1 -1 -1 -1 -1 -1
+END
+
+EVENT 4022; Battlefield zone change
+E ZONE_CHANGE 48 120 115
+END
+
+EVENT 4023; Forgotten Temple 46-59
+E RUN_EVENT 3172; check if it is time and execute
+E RUN_EVENT 1015; error the temple is closed
+END
+
+EVENT 4024; Forgotten Temple 46-59
+E RUN_EVENT 3176; check if it is time and execute
+E RUN_EVENT 1018; error the temple is closed
+END
+;-------------------------------------------------------------------------
